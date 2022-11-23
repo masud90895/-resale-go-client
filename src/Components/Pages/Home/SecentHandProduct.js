@@ -1,13 +1,14 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const SecentHandProduct = () => {
-  const { data: brand = [] } = useQuery({
+  const { data: brands = [] } = useQuery({
     queryKey: ["brand"],
     queryFn: () =>
       fetch("http://localhost:5000/brand").then((res) => res.json()),
   });
-  console.log(brand);
+  console.log(brands);
 
   return (
     <div className="mx-auto container px-6 xl:px-0 py-12">
@@ -21,21 +22,28 @@ const SecentHandProduct = () => {
         </p>
       </div>
       <div className="flex flex-col">
-        <div className="mt-10 grid lg:grid-cols-3 gap-x-8 gap-y-8 items-center">
-          <div className="group group-hover:bg-opacity-60 transition duration-500 relative bg-gray-50 sm:p-28 py-36 px-10 flex justify-center items-center">
-            <img
-              className="group-hover:opacity-60 transition duration-500"
-              src="https://i.ibb.co/q79KfQr/pexels-pixabay-276583-removebg-preview-1.png"
-              alt="sofa-2"
-            />
-            <div className="absolute sm:top-8 top-4 left-4 sm:left-8 flex justify-start items-start flex-col space-y-2">
-              <div>
-                <p className="group-hover:opacity-60 transition duration-500 text-xl leading-5 text-gray-600">
-                  Sectional Sofa
-                </p>
-              </div>
+        <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-x-8 gap-y-8 items-center">
+          {brands?.map((brand) => (
+            <div
+              key={brand._id}
+              className="relative group flex justify-center items-center h-full w-full"
+            >
+              <img
+                className="object-center object-cover h-full w-full"
+                src={brand.img}
+                alt=""
+              />
+
+              <Link
+                to={`../category/${brand._id}`}
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 bottom-4 z-10 absolute text-base font-medium leading-none text-gray-800 py-3 w-36 bg-white text-center"
+              >
+                <button>{brand.brand}</button>
+              </Link>
+
+              <div className="absolute opacity-0 group-hover:opacity-100 transition duration-500 bottom-3 py-6 z-0 px-20 w-36 bg-white bg-opacity-50" />
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

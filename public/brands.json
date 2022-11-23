@@ -2,18 +2,18 @@
     {
         "brand" : "Apple",
         "details": "Apple is the largest technology company by revenue (totaling US$365.8 billion in 2021) and, as of June 2022, is the world's biggest company by market",
-        "brand-img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg"
+        "img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg"
 
     },
     {
         "brand" : "Xiaomi",
         "details": "Xiaomi is an Internet company with smartphones and smart hardware connected by an IoT platform at its core. The company has established the world's largest company by market",
-        "brand-img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg"
+        "img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg"
     },
     
     {
         "brand" : "Realme",
         "details": "Realme is an emerging mobile phone brand which is committed to offering mobile phones with powerful performance, stylish design and sincere services.",
-        "brand-img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png"
+        "img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png"
     }
 ]
