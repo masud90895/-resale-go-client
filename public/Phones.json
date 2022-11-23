@@ -2,16 +2,130 @@
     {
         "brand" : "Apple",
         "details": "Apple is the largest technology company by revenue (totaling US$365.8 billion in 2021) and, as of June 2022, is the world's biggest company by market",
-        "brand-img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg"
+        "brand-img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg",
+        "model" : "I-phone x",
+        "model-img" : "https://i.ibb.co/dWjbKgL/7fb23d232f2607cf0bf9176542c38a2a.jpg",
+        "location" : "Banani,Dhaka",
+        "resale-price" : 24999,
+        "original-price" : 70000,
+        "uses-year" : 1,
+        "time" : "10am",
+        "seller ": "Md Masud Rana",
+        "verify" : false
+
+    },
+    {
+        "brand" : "Apple",
+        "details": "Apple is the largest technology company by revenue (totaling US$365.8 billion in 2021) and, as of June 2022, is the world's biggest company by market",
+        "brand-img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg",
+        "model" : "iphone 14 pro max",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-max-1.jpg",
+        "location" : "gulsan,Dhaka",
+        "resale-price" : 64999,
+        "original-price" : 189999,
+        "uses-year" : 2,
+        "time" : "1am",
+        "seller ": "Md Rakib",
+        "verify" : true
+
+    },
+    {
+        "brand" : "Apple",
+        "details": "Apple is the largest technology company by revenue (totaling US$365.8 billion in 2021) and, as of June 2022, is the world's biggest company by market",
+        "brand-img" : "https://i.ibb.co/16Q8Fcs/About-Apple-Logo-930x620.jpg",
+        "model" : "Apple iPhone 14",
+        "model-img" : "https://www.apple.com/newsroom/images/product/iphone/geo/Apple-iPhone-14-iPhone-14-Plus-2up-PRODUCT-RED-220907-geo_inline.jpg.large.jpg",
+        "location" : "Banasree,Dhaka",
+        "resale-price" : 29999,
+        "original-price" : 60000,
+        "uses-year" : 1,
+        "time" : "12am",
+        "seller ": "Md Shakil",
+        "verify" : false
+
     },
     {
         "brand" : "Xiaomi",
         "details": "Xiaomi is an Internet company with smartphones and smart hardware connected by an IoT platform at its core. The company has established the world's largest company by market",
-        "brand-img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg"
+        "brand-img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg",
+        "model" : "Xiaomi Redmi Note 12 Explorer",
+        "model-img" : "https://xiaomiui.net/wp-content/uploads/2022/10/Redmi-Note-12-Pro-210W-charging.jpg",
+        "location" : "Thakurgaon Sadar",
+        "resale-price" : 9999,
+        "original-price" : 40000,
+        "uses-year" : 1,
+        "time" : "2am",
+        "seller ": "Md mahabub",
+        "verify" : true
+    },
+    {
+        "brand" : "Xiaomi",
+        "details": "Xiaomi is an Internet company with smartphones and smart hardware connected by an IoT platform at its core. The company has established the world's largest company by market",
+        "brand-img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg",
+        "model" : "Xiaomi Redmi Note 12 Pro+",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-12-pro-plus-1.jpg",
+        "location" : "Thakurgaon Sadar",
+        "resale-price" : 14999,
+        "original-price" : 39000,
+        "uses-year" : 1,
+        "time" : "2am",
+        "seller ": "Md mahafuz",
+        "verify" : true
+    },
+    {
+        "brand" : "Xiaomi",
+        "details": "Xiaomi is an Internet company with smartphones and smart hardware connected by an IoT platform at its core. The company has established the world's largest company by market",
+        "brand-img" : "https://i.ibb.co/prjGHkG/xiaomi-19-zaujimavosti-cover.jpg",
+        "model" : "Xiaomi Poco M5",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-poco-m5-1.jpg",
+        "location" : "Dinajpur",
+        "resale-price" : 22999,
+        "original-price" : 80000,
+        "uses-year" : 1,
+        "time" : "2am",
+        "seller ": "Md osman",
+        "verify" : true
     },
     {
         "brand" : "Realme",
         "details": "Realme is an emerging mobile phone brand which is committed to offering mobile phones with powerful performance, stylish design and sincere services.",
-        "brand-img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png"
+        "brand-img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png",
+        "model" : "Realme Narzo 50i Prime",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/realme/realme-narzo-50i-prime-1.jpg",
+        "location" : "Rongpur",
+        "resale-price" : 10999,
+        "original-price" : 20000,
+        "uses-year" : 1,
+        "time" : "2am",
+        "seller ": "Md Goni",
+        "verify" : true
+    },
+    {
+        "brand" : "Realme",
+        "details": "Realme is an emerging mobile phone brand which is committed to offering mobile phones with powerful performance, stylish design and sincere services.",
+        "brand-img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png",
+        "model" : "Realme Narzo 50 Pro",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/realme/realme-narzo-50-pro-5g-1.jpg",
+        "location" : "Soyodpur",
+        "resale-price" : 12999,
+        "original-price" : 25000,
+        "uses-year" : 1,
+        "time" : "7 pm",
+        "seller ": "Md tanmoy",
+        "verify" : false
+    },
+    {
+        "brand" : "Realme",
+        "details": "Realme is an emerging mobile phone brand which is committed to offering mobile phones with powerful performance, stylish design and sincere services.",
+        "brand-img" : "https://i.ibb.co/pzSrrNB/Oppo-sub-Realme-Debut-India-1024x575.png",
+        "model" : "Realme 10 Pro+",
+        "model-img" : "https://fdn2.gsmarena.com/vv/pics/realme/realme-10-pro-plus-1.jpg",
+        "location" : "Rongpur",
+        "resale-price" : 10999,
+        "original-price" : 20000,
+        "uses-year" : 1,
+        "time" : "2am",
+        "seller ": "Md Goni",
+        "verify" : true
     }
 ]
