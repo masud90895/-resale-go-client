@@ -6,7 +6,7 @@ const Footer = () => {
     <div className=" bg-gray-100 pb-12 ">
         <div className="mx-auto container  flex flex-col items-center justify-center">
             <div>
-                <img className="w-[64px] rounded-2xl mt-3 " src="https://i.ibb.co/qjZyQSh/Classic-Motorcycle-Community-Logo.png" alt="" />
+                <img className="w-[64px] rounded-2xl mt-3 " src="https://i.ibb.co/tMm7BbY/Classic-Motorcycle-Community-Logo-1.png" alt="" />
             </div>
             <div className="text-black flex flex-col md:items-center f-f-l pt-3">
                 <h1 className="text-2xl font-black font-serif" >Resale-Go Limited</h1>

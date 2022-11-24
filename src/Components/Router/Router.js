@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import ProductDetailes from "../Pages/ProductDetailes/ProductDetailes";
 import Products from "../Pages/Products/Products";
+import PriveteRoute from "./PriveteRoute";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
         },
         {
           path: "category/:id",
-          element: <ProductDetailes/>
+          element: <PriveteRoute><ProductDetailes/></PriveteRoute>,
+          loader : ({params})=> fetch(`http://localhost:5000/category/${params.id}`)
         },
         {
           path: "blog",
