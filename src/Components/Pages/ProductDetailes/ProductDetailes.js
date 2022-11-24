@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { useLoaderData, Link } from "react-router-dom";
+import React,{ useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Loader from "../Shared/Loader";
 import { MdVerifiedUser } from "react-icons/md";
+import ProductsModal from "../ProductDetailes/ProductsModal";
 
 const ProductDetailes = () => {
   const brand = useLoaderData();
+  const [product, setProduct] = useState({});
+  const [modal,setModal] = useState(null)
   const { data: products = [], isLoading } = useQuery({
     queryKey: ["brand"],
     queryFn: () =>
@@ -13,7 +16,6 @@ const ProductDetailes = () => {
         res.json()
       ),
   });
-  console.log(products);
 
   if (isLoading) {
     return <Loader />;
@@ -73,11 +75,11 @@ const ProductDetailes = () => {
           {products?.map((product) => (
             <div
               key={product._id}
-              className="card card-compact w-96 bg-base-100 shadow-xl"
+              className="card card-compact w-full lg:w-96 bg-base-100 shadow-xl border border-black"
             >
               <figure>
                 <img
-                  className="h-[200px] w-full p-2 rounded-lg"
+                  className="lg:h-[200px] md:h-[280px] h-[180px] w-full p-2 rounded-lg"
                   src={product.img}
                   alt=""
                 />
@@ -90,22 +92,37 @@ const ProductDetailes = () => {
                   <p>Location : {product.location}</p>
                   <p>Used year : {product.usesyear} / year</p>
                   <p>Posted Time : {product.time}</p>
-                  <p className='flex'>
+                  <h1 className="flex">
                     <span>Seller : {product.seller}</span>
-                    <span className='mt-1 ml-5'>
-                      { product.verify ? <MdVerifiedUser title='verified' className='text-green-500'/> : <MdVerifiedUser className='text-red-500' title='not verified'/>}
-
-
-                      
-                    </span>
-                  </p>
+                    <p className=" ml-5">
+                      {product.verify && (
+                        <span className="flex text-green-500">
+                          <MdVerifiedUser
+                            title="verified"
+                            className="text-green-500 mt-2 mr-2 "
+                          />{" "}
+                          <span className="font-sans">verified</span>
+                        </span>
+                      )}
+                    </p>
+                  </h1>
                 </div>
                 <div className="card-actions justify-start">
-                  <button className="btn btn-primary">Book now</button>
+                  <label
+                  onClick={()=>(setProduct(product)) || (setModal(product))}
+                    htmlFor="my-modal-3"
+                    className="btn bg-black text-white hover:bg-white hover:text-black"
+                  >
+                    Book now
+                  </label>
                 </div>
               </div>
             </div>
           ))}
+          {
+            modal &&  <ProductsModal product={product} setModal={setModal} />
+          }
+         
         </div>
       </div>
     </div>
