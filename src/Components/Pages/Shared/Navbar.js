@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(true);
+  const { user, logOut } = useContext(AuthContext);
+
+  const logOutUser = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
   return (
     <header aria-label="Site Header" className="bg-gray-200">
       <div className="mx-auto  px-4 sm:px-6 lg:px-[100px]">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <Link className="block" to="..//">
-             <h1 className="text-3xl font-bold font-serif text-black"> Resale-Go</h1>
+              <h1 className="text-3xl font-bold font-serif text-black">
+                {" "}
+                Resale-Go
+              </h1>
             </Link>
           </div>
 
@@ -60,7 +71,6 @@ const Navbar = () => {
                   </NavLink>
                 </li>
 
-
                 <li>
                   <NavLink
                     className={({ isActive }) =>
@@ -85,21 +95,6 @@ const Navbar = () => {
                           : "hover:border-black"
                       }`
                     }
-                    to="../contact"
-                  >
-                    Contact Us
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      `text-gray-700 transition hover:border-b-2  ${
-                        isActive
-                          ? "bg-gradient-to-r from-black to-black text-gray-100 py-3 px-4 rounded-lg"
-                          : "hover:border-black"
-                      }`
-                    }
                     to="../blog"
                   >
                     Blog
@@ -109,7 +104,7 @@ const Navbar = () => {
             </nav>
 
             <div className="flex items-center gap-4">
-              {/* <div className="sm:flex sm:gap-4">
+              <div className="sm:flex sm:gap-4">
                 {user ? (
                   <button
                     onClick={logOutUser}
@@ -125,7 +120,7 @@ const Navbar = () => {
                     Login
                   </NavLink>
                 )}
-              </div> */}
+              </div>
 
               <div className="block md:hidden">
                 <button
@@ -160,7 +155,6 @@ const Navbar = () => {
           <Link to="../about">About</Link>
           <Link to="../products">Products</Link>
           <Link to="../dashboard">Dashboard</Link>
-          <Link to="../contact">Contact Us</Link>
           <Link to="../Blog">Blog</Link>
         </div>
       </div>
