@@ -4,6 +4,7 @@ import { useAdmin } from '../Hooks/UseAdmin';
 import { AuthContext } from '../Pages/AuthProvider/AuthProvider';
 import Loader from '../Pages/Shared/Loader';
 
+
 const AdminRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
     const [isAdmin, isLoading] = useAdmin(user?.email);

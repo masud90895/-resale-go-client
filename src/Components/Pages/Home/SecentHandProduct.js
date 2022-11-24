@@ -8,7 +8,6 @@ const SecentHandProduct = () => {
     queryFn: () =>
       fetch("http://localhost:5000/brand").then((res) => res.json()),
   });
-  console.log(brands);
 
   return (
     <div className="mx-auto container px-6 xl:px-0 py-12">

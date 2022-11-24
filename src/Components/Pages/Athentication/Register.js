@@ -22,7 +22,6 @@ const Register = () => {
   // }
 
   const handleRegister = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -76,7 +75,7 @@ const Register = () => {
 
   return (
     <div className=" h-screen flex justify-center items-center my-[100px] lg:my-0 w-[96%] mx-auto">
-      <div className="w-[385px] h-[650px] border border-gray-400 shadow-2xl rounded-lg p-[29px]">
+      <div className="w-[385px] h-[700px] border border-gray-400 shadow-2xl rounded-lg p-[29px]">
         <form onSubmit={handleSubmit(handleRegister)}>
           <div>
             <h1 className="mb-[20px] text-2xl font-bold font-serif">
@@ -85,7 +84,7 @@ const Register = () => {
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text">
-                  Pick the best fantasy franchise
+                 Selected Account Type
                 </span>
               </label>
               <select {...register("role")} className="select select-bordered">
