@@ -1,48 +1,54 @@
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import ProductsModal from "../ProductDetailes/ProductsModal";
-import axios from "axios"
-import { GiPriceTag,GiCalendarHalfYear } from 'react-icons/gi'; 
-import { MdOutlinePriceChange } from 'react-icons/md'; 
-import { HiLocationMarker } from 'react-icons/hi'; 
-import { AiOutlineFieldTime } from 'react-icons/ai'; 
-import { SiSellfy } from 'react-icons/si'; 
+import axios from "axios";
+import { GiPriceTag, GiCalendarHalfYear } from "react-icons/gi";
+import { MdOutlinePriceChange, MdReportProblem } from "react-icons/md";
+import { HiLocationMarker } from "react-icons/hi";
+import { AiOutlineFieldTime } from "react-icons/ai";
+import { SiSellfy } from "react-icons/si";
+import Swal from "sweetalert2";
 
 const ProductDetailes = () => {
   const brands = useLoaderData();
-  const [product, setProduct] = useState({});  
-  const [products, setProducts] = useState([]);  
-  const [modal,setModal] = useState(null)
-  /* const { data: products = [], isLoading } = useQuery({
-    queryKey: ["brand",],
-    queryFn: () =>
-      fetch(`http://localhost:5000/brand/${brands.brand}`).then((res) =>
-        res.json()
-      ),
-  }); */
+  const [product, setProduct] = useState({});
+  const [products, setProducts] = useState([]);
+  const [modal, setModal] = useState(null);
 
- /*  if (isLoading) {
-    return <Loader />;
-  } */
+  const handleReport = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want To Report This",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Report it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/report/${id}`, {
+          method: "PUT",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            Swal.fire(
+              "Reported!",
+              "Your Product has been Reported.",
+              "success"
+            );
+          });
+      }
+    });
+  };
 
- /*  useEffect(()=>{
-    fetch(`http://localhost:5000/brand/${brands.brand}`)
-    .then((res) =>res.json())
-    .then(data=> setProducts(data))
-  },[brands.brand]) */
-
-
-  useEffect(()=>{
-    axios.get(`http://localhost:5000/brand/${brands?.brand}`)
-    .then(res=>{
-      setProducts(res?.data)
-    })
-  },[brands?.brand])
-  
-  
-
-
+  useEffect(() => {
+    axios.get(`http://localhost:5000/brand/${brands?.brand}`).then((res) => {
+      setProducts(res?.data);
+    });
+  }, [brands?.brand]);
 
   return (
     <div className=" 2xl:container 2xl:mx-auto">
@@ -109,15 +115,42 @@ const ProductDetailes = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="text-2xl font-bold">{product.model}</h2>
+                <div className="flex justify-between">
+                  <h2 className="text-2xl font-bold">{product.model}</h2>
+                  <h1
+                    onClick={() => handleReport(product._id)}
+                    title="Report product"
+                    className="text-red-500 flex cursor-pointer"
+                  >
+                    <MdReportProblem className="mt-1 " /> Report
+                  </h1>
+                </div>
                 <div className="text-lg">
-                  <p className="flex"><GiPriceTag className="mt-2 mr-1"/><span>Selling price : {product.resaleprice} /tk</span></p>
-                  <p className="flex"><MdOutlinePriceChange className="mt-2 mr-1"/>Original price : {product.originalprice} /tk</p>
-                  <p className="flex"><HiLocationMarker className="mt-2 mr-1"/>Location : {product.location}</p>
-                  <p className="flex"><GiCalendarHalfYear className="mt-2 mr-1"/>Used year : {product.usesyear} / year</p>
-                  <p className="flex"><AiOutlineFieldTime className="mt-2 mr-1"/>Posted Time : {product.time}</p>
+                  <p className="flex">
+                    <GiPriceTag className="mt-2 mr-1" />
+                    <span>Selling price : {product.resaleprice} /tk</span>
+                  </p>
+                  <p className="flex">
+                    <MdOutlinePriceChange className="mt-2 mr-1" />
+                    Original price : {product.originalprice} /tk
+                  </p>
+                  <p className="flex">
+                    <HiLocationMarker className="mt-2 mr-1" />
+                    Location : {product.location}
+                  </p>
+                  <p className="flex">
+                    <GiCalendarHalfYear className="mt-2 mr-1" />
+                    Used year : {product.usesyear} / year
+                  </p>
+                  <p className="flex">
+                    <AiOutlineFieldTime className="mt-2 mr-1" />
+                    Posted Time : {product.time}
+                  </p>
                   <h1 className="flex">
-                    <span className="flex"><SiSellfy className="mt-2 mr-1"/>Seller : {product.seller}</span>
+                    <span className="flex">
+                      <SiSellfy className="mt-2 mr-1" />
+                      Seller : {product.seller}
+                    </span>
                     <p className=" ml-5">
                       {product.verify && (
                         <span className="flex text-green-500">
@@ -133,7 +166,7 @@ const ProductDetailes = () => {
                 </div>
                 <div className="card-actions justify-start">
                   <label
-                  onClick={()=>(setProduct(product)) || (setModal(product))}
+                    onClick={() => setProduct(product) || setModal(product)}
                     htmlFor="my-modal-3"
                     className="btn bg-black text-white hover:bg-white hover:text-black"
                   >
@@ -143,10 +176,7 @@ const ProductDetailes = () => {
               </div>
             </div>
           ))}
-          {
-            modal &&  <ProductsModal product={product} setModal={setModal} />
-          }
-         
+          {modal && <ProductsModal product={product} setModal={setModal} />}
         </div>
       </div>
     </div>
