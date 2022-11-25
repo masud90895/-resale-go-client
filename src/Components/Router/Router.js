@@ -4,6 +4,9 @@ import Main from "../layOut/Main";
 import Login from "../Pages/Athentication/Login";
 import Register from "../Pages/Athentication/Register";
 import Blog from "../Pages/Blog/Blog";
+import AddBuyers from "../Pages/Dashboard/AdminOnly/AddBuyers";
+import AllSeller from "../Pages/Dashboard/AdminOnly/AllSeller";
+import ReportedItems from "../Pages/Dashboard/AdminOnly/ReportedItems";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddAProduct from "../Pages/Dashboard/SellerOnly/AddAProduct";
 import MyProducts from "../Pages/Dashboard/SellerOnly/MyProducts";
@@ -12,6 +15,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import ProductDetailes from "../Pages/ProductDetailes/ProductDetailes";
 import Products from "../Pages/Products/Products";
+import AdminRoute from "./AdminRoute";
 import PriveteRoute from "./PriveteRoute";
 import SellerRoute from "./SellerRoute";
 
@@ -96,6 +100,30 @@ const router = createBrowserRouter([
           <SellerRoute>
             <MyProducts />
           </SellerRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allsellers",
+        element: (
+          <AdminRoute>
+            <AllSeller />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allbuyers",
+        element: (
+          <AdminRoute>
+            <AddBuyers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/reportedItem",
+        element: (
+          <AdminRoute>
+            <ReportedItems />
+          </AdminRoute>
         ),
       },
     ],

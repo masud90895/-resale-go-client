@@ -3,6 +3,11 @@ import { useLoaderData } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import ProductsModal from "../ProductDetailes/ProductsModal";
 import axios from "axios"
+import { GiPriceTag,GiCalendarHalfYear } from 'react-icons/gi'; 
+import { MdOutlinePriceChange } from 'react-icons/md'; 
+import { HiLocationMarker } from 'react-icons/hi'; 
+import { AiOutlineFieldTime } from 'react-icons/ai'; 
+import { SiSellfy } from 'react-icons/si'; 
 
 const ProductDetailes = () => {
   const brands = useLoaderData();
@@ -98,7 +103,7 @@ const ProductDetailes = () => {
             >
               <figure>
                 <img
-                  className="lg:h-[200px] md:h-[280px] h-[180px] w-full p-2 rounded-lg"
+                  className="lg:h-[200px] px-4 md:h-[280px] h-[180px] w-full p-2 rounded-lg"
                   src={product.img}
                   alt=""
                 />
@@ -106,13 +111,13 @@ const ProductDetailes = () => {
               <div className="card-body">
                 <h2 className="text-2xl font-bold">{product.model}</h2>
                 <div className="text-lg">
-                  <p>Selling price : {product.resaleprice} /tk</p>
-                  <p>Original price : {product.originalprice} /tk</p>
-                  <p>Location : {product.location}</p>
-                  <p>Used year : {product.usesyear} / year</p>
-                  <p>Posted Time : {product.time}</p>
+                  <p className="flex"><GiPriceTag className="mt-2 mr-1"/><span>Selling price : {product.resaleprice} /tk</span></p>
+                  <p className="flex"><MdOutlinePriceChange className="mt-2 mr-1"/>Original price : {product.originalprice} /tk</p>
+                  <p className="flex"><HiLocationMarker className="mt-2 mr-1"/>Location : {product.location}</p>
+                  <p className="flex"><GiCalendarHalfYear className="mt-2 mr-1"/>Used year : {product.usesyear} / year</p>
+                  <p className="flex"><AiOutlineFieldTime className="mt-2 mr-1"/>Posted Time : {product.time}</p>
                   <h1 className="flex">
-                    <span>Seller : {product.seller}</span>
+                    <span className="flex"><SiSellfy className="mt-2 mr-1"/>Seller : {product.seller}</span>
                     <p className=" ml-5">
                       {product.verify && (
                         <span className="flex text-green-500">
