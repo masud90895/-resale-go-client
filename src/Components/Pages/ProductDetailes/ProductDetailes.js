@@ -1,35 +1,54 @@
-import { useQuery } from "@tanstack/react-query";
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import Loader from "../Shared/Loader";
 import { MdVerifiedUser } from "react-icons/md";
 import ProductsModal from "../ProductDetailes/ProductsModal";
+import axios from "axios"
 
 const ProductDetailes = () => {
-  const brand = useLoaderData();
-  const [product, setProduct] = useState({});
+  const brands = useLoaderData();
+  const [product, setProduct] = useState({});  
+  const [products, setProducts] = useState([]);  
   const [modal,setModal] = useState(null)
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ["brand"],
+  /* const { data: products = [], isLoading } = useQuery({
+    queryKey: ["brand",],
     queryFn: () =>
-      fetch(`http://localhost:5000/brand/${brand.brand}`).then((res) =>
+      fetch(`http://localhost:5000/brand/${brands.brand}`).then((res) =>
         res.json()
       ),
-  });
+  }); */
 
-  if (isLoading) {
+ /*  if (isLoading) {
     return <Loader />;
-  }
+  } */
+
+ /*  useEffect(()=>{
+    fetch(`http://localhost:5000/brand/${brands.brand}`)
+    .then((res) =>res.json())
+    .then(data=> setProducts(data))
+  },[brands.brand]) */
+
+
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/brand/${brands?.brand}`)
+    .then(res=>{
+      setProducts(res?.data)
+    })
+  },[brands?.brand])
+  
+  
+
+
+
   return (
     <div className=" 2xl:container 2xl:mx-auto">
       <div className=" bg-gray-50 text-center lg:py-10 md:py-8 py-6">
         <p className=" w-10/12 mx-auto md:w-full  lg:text-4xl text-3xl lg:leading-9 md:leading-7 leading-9 text-center text-gray-800 font-bold font-serif">
-          {brand.brand} Collection
+          {brands.brand} Collection
         </p>
       </div>
       <div className=" py-6 lg:px-20 md:px-6 px-4">
         <p className=" font-normal text-sm leading-3 text-gray-600 ">
-          Home / Category / {brand.brand}
+          Home / Category / {brands.brand}
         </p>
         <hr className=" w-full bg-gray-200 my-6" />
 
@@ -87,8 +106,8 @@ const ProductDetailes = () => {
               <div className="card-body">
                 <h2 className="text-2xl font-bold">{product.model}</h2>
                 <div className="text-lg">
-                  <p>Selling price : ${product.resaleprice} /tk</p>
-                  <p>Original price : ${product.originalprice} /tk</p>
+                  <p>Selling price : {product.resaleprice} /tk</p>
+                  <p>Original price : {product.originalprice} /tk</p>
                   <p>Location : {product.location}</p>
                   <p>Used year : {product.usesyear} / year</p>
                   <p>Posted Time : {product.time}</p>

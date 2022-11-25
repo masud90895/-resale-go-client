@@ -4,6 +4,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const ProductsModal = ({ product, setModal }) => {
   const { user } = useContext(AuthContext);
+  console.log(product);
   const locations = [
     "Dhaka",
     "Khulna",
@@ -30,6 +31,7 @@ const ProductsModal = ({ product, setModal }) => {
       price: product.resaleprice,
       number,
       location,
+      image : product.img
     };
     console.log(allInfo);
     fetch("http://localhost:5000/bookings", {

@@ -17,7 +17,6 @@ const DashBoardLayout = () => {
         res.json()
       ),
   });
-  console.log(users);
 
   if (isLoading) {
     return <h1>loading.........</h1>;

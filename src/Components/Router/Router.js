@@ -5,6 +5,8 @@ import Login from "../Pages/Athentication/Login";
 import Register from "../Pages/Athentication/Register";
 import Blog from "../Pages/Blog/Blog";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import AddAProduct from "../Pages/Dashboard/SellerOnly/AddAProduct";
+import MyProducts from "../Pages/Dashboard/SellerOnly/MyProducts";
 import MyOrders from "../Pages/Dashboard/UserOnly/MyOrders";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
@@ -76,6 +78,22 @@ const router = createBrowserRouter([
         element: (
           <PriveteRoute>
             <MyOrders/>
+          </PriveteRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addAProduct",
+        element: (
+          <PriveteRoute>
+            <AddAProduct/>
+          </PriveteRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myProducts",
+        element: (
+          <PriveteRoute>
+            <MyProducts/>
           </PriveteRoute>
         ),
       },

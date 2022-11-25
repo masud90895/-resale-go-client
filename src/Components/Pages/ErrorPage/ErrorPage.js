@@ -3,7 +3,6 @@ import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const error = useRouteError();
-  console.log(error);
   return (
     <div className="">
       <div className="flex items-center justify-center py-12">

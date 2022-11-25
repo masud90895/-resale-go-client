@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import Loader from "../Shared/Loader";
 
 const SecentHandProduct = () => {
-  const { data: brands = [] } = useQuery({
+  const [brands,setbrand] = useState([])
+ /*  const {isLoading, data: brands = [] } = useQuery({
     queryKey: ["brand"],
     queryFn: () =>
       fetch("http://localhost:5000/brand").then((res) => res.json()),
   });
+  if (isLoading) {
+    return <Loader />;
+  } */
+
+  useEffect(()=>{
+    fetch("http://localhost:5000/brand")
+    .then((res) => res.json())
+    .then(data=>setbrand(data))
+  },[])
+  console.log(brands);
 
   return (
     <div className="mx-auto container px-6 xl:px-0 py-12">
