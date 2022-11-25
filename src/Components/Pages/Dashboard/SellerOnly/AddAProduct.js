@@ -11,6 +11,7 @@ const AddAProduct = () => {
   const imgHostKey = process.env.REACT_APP_imgKey;
   const navigate = useNavigate();
   const time = new Date().toLocaleTimeString();
+  const date =new Date().getFullYear()
 
   const {
     formState: { errors },
@@ -22,7 +23,6 @@ const AddAProduct = () => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
-
     fetch(`https://api.imgbb.com/1/upload?key=${imgHostKey}`, {
       method: "POST",
       body: formData,
@@ -39,7 +39,7 @@ const AddAProduct = () => {
             verify: false,
             originalprice: 2999,
             resaleprice: data.price,
-            usesyear: data.usesyear,
+            usesyear: date - parseFloat(data.usesyear),
             seller: data.name,
             email: data.email,
             status : false
@@ -211,15 +211,37 @@ const AddAProduct = () => {
           </p>
         )}
         <label className="label">
-          <span className="text-md text-black">Uses Year</span>
+          <span className="text-md text-black">Year of purchase</span>
         </label>
-        <input
+        {/* <input
           type="text"
           className="input input-bordered w-full "
           {...register("usesyear", {
             required: "usesyear is required",
           })}
-        />
+        /> */}
+        <select
+          {...register("usesyear", {
+            required: "usesyear is required",
+          })}
+          className="select select-bordered w-full"
+        >
+          <option value="2022" key="2022">
+            2022
+          </option>
+          <option value="2021" key="2021">
+            2021
+          </option>
+          <option value="2020" key="2020">
+            2020
+          </option>
+          <option value="2019" key="2019">
+            2019
+          </option>
+          <option value="2018" key="2018">
+            2018
+          </option>
+        </select>
         {errors.usesyear && (
           <p className="text-red-600 text-start">{errors.usesyear?.message}</p>
         )}
