@@ -13,6 +13,7 @@ import Home from "../Pages/Home/Home";
 import ProductDetailes from "../Pages/ProductDetailes/ProductDetailes";
 import Products from "../Pages/Products/Products";
 import PriveteRoute from "./PriveteRoute";
+import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
   {
@@ -64,12 +65,12 @@ const router = createBrowserRouter([
       </PriveteRoute>
     ),
     errorElement: <ErrorPage />,
-    children :[
+    children: [
       {
         path: "/dashboard",
         element: (
           <PriveteRoute>
-            <Dashboard/>
+            <Dashboard />
           </PriveteRoute>
         ),
       },
@@ -77,27 +78,27 @@ const router = createBrowserRouter([
         path: "/dashboard/myorders",
         element: (
           <PriveteRoute>
-            <MyOrders/>
+            <MyOrders />
           </PriveteRoute>
         ),
       },
       {
         path: "/dashboard/addAProduct",
         element: (
-          <PriveteRoute>
-            <AddAProduct/>
-          </PriveteRoute>
+          <SellerRoute>
+            <AddAProduct />
+          </SellerRoute>
         ),
       },
       {
         path: "/dashboard/myProducts",
         element: (
-          <PriveteRoute>
-            <MyProducts/>
-          </PriveteRoute>
+          <SellerRoute>
+            <MyProducts />
+          </SellerRoute>
         ),
       },
-    ]
+    ],
   },
 ]);
 

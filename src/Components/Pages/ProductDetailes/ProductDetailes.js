@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { MdVerifiedUser } from "react-icons/md";
+import { FaCheckCircle } from "react-icons/fa";
 import ProductsModal from "../ProductDetailes/ProductsModal";
 import axios from "axios"
 
@@ -116,7 +116,7 @@ const ProductDetailes = () => {
                     <p className=" ml-5">
                       {product.verify && (
                         <span className="flex text-green-500">
-                          <MdVerifiedUser
+                          <FaCheckCircle
                             title="verified"
                             className="text-green-500 mt-2 mr-2 "
                           />{" "}
