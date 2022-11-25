@@ -166,7 +166,7 @@ const MyProducts = () => {
         </div>
       ) : (
         <div className="text-4xl font-bold font-serif">
-          <h1>You Don't added any product.</h1>
+          <h1 className="text-red-500">You Don't added any product.</h1>
         </div>
       )}
     </>

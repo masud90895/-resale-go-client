@@ -19,7 +19,6 @@ const SecentHandProduct = () => {
     .then((res) => res.json())
     .then(data=>setbrand(data))
   },[])
-  console.log(brands);
 
   return (
     <div className="mx-auto container px-6 xl:px-0 py-12">
