@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { useAdmin } from "../Hooks/UseAdmin";
 import { AuthContext } from "../Pages/AuthProvider/AuthProvider";
@@ -9,14 +9,19 @@ import Navbar from "../Pages/Shared/Navbar";
 const DashBoardLayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin, isLoading] = useAdmin(user?.email);
+  // const [users,setusers]=useState({})
 
   const { data: users = {} } = useQuery({
-    queryKey: ["brand"],
+    queryKey: ["user"],
     queryFn: () =>
-      fetch(`http://localhost:5000/user/?email=${user?.email}`).then((res) =>
-        res.json()
-      ),
+      fetch(`http://localhost:5000/user?email=${user?.email}`).then((res) =>res.json()),
   });
+
+  /* useEffect(()=>{
+    fetch(`http://localhost:5000/user?email=${user?.email}`)
+    .then((res) =>res.json())
+    .then(data=>setusers(data))
+  },[user?.email]) */
 
   if (isLoading) {
     return <h1>loading.........</h1>;
@@ -38,7 +43,7 @@ const DashBoardLayout = () => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             <li>
-              <Link to="/dashboard ">Welcome Page</Link>
+              <Link to="/dashboard ">Dashboard</Link>
             </li>
             {users?.role === "Buyer" && (
               <>
@@ -58,7 +63,7 @@ const DashBoardLayout = () => {
               </>
             )}
 
-            {(isAdmin || users?.role === "Admin") && (
+            {( users?.role === "Admin") && (
               <>
                 <li>
                   <Link to="/dashboard/allsellers">All Sellers</Link>
