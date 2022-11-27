@@ -1,7 +1,7 @@
 # Resale-Go
 
-##Admin Password
-email: admin@admin.com
+## Admin Password
+email: admin@admin.com <br/>
 password: Masud1@
 
 ## Live Link

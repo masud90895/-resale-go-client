@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddAProduct from "../Pages/Dashboard/SellerOnly/AddAProduct";
 import MyProducts from "../Pages/Dashboard/SellerOnly/MyProducts";
 import MyOrders from "../Pages/Dashboard/UserOnly/MyOrders";
+import Payment from "../Pages/Dashboard/UserOnly/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import ProductDetailes from "../Pages/ProductDetailes/ProductDetailes";
@@ -125,6 +126,15 @@ const router = createBrowserRouter([
             <ReportedItems />
           </AdminRoute>
         ),
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: (
+          
+            <Payment />
+          
+        ),
+        loader : ({params})=> fetch(`http://localhost:5000/dashboard/payment/${params.id}`)
       },
     ],
   },
