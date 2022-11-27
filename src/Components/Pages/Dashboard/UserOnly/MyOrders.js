@@ -16,7 +16,6 @@ const MyOrders = () => {
       return data;
     },
   });
-  console.log(data);
   return (
     <div className="overflow-x-auto w-full">
       {data.length > 0 ? (
@@ -36,9 +35,9 @@ const MyOrders = () => {
               <tr key={product._id}>
                 <th>{i + 1}</th>
                 <td>
-                  <div className="flex items-center space-x-3">
-                    <div className="">
-                      <div className="mask mask-squircle w-12 h-12">
+                  <div className="flex items-center space-x-3 ">
+                    <div >
+                      <div className="mask mask-squircle  w-12 h-12">
                         <img src={product.image} alt="" />
                       </div>
                     </div>

@@ -31,7 +31,8 @@ const ProductsModal = ({ product, setModal }) => {
       price: product.resaleprice,
       number,
       location,
-      image : product.img
+      image: product.img,
+      productId: product._id,
     };
     console.log(allInfo);
     fetch("http://localhost:5000/bookings", {

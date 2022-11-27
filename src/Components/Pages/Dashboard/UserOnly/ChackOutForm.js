@@ -10,8 +10,8 @@ const ChackOutForm = ({ booking }) => {
   const [processing, SetProcessing] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const { name, email, price, productId } = booking;
   console.log(booking);
-  const { name, email, price } = booking;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -59,7 +59,7 @@ const ChackOutForm = ({ booking }) => {
           card: card,
           billing_details: {
             name,
-            email
+            email,
           },
         },
       });
@@ -77,6 +77,7 @@ const ChackOutForm = ({ booking }) => {
         transaction_id: paymentIntent.id,
         email,
         bookingId: booking._id,
+        productId
       };
 
       fetch("http://localhost:5000/payments", {
@@ -92,7 +93,7 @@ const ChackOutForm = ({ booking }) => {
           if (data.insertedId) {
             setSuccess("Congrats ! your payment completed successfully");
             setTransactionId(paymentIntent.id);
-            toast.success("Congrats ! your payment completed successfully")
+            toast.success("Congrats ! your payment completed successfully");
           }
         });
     }

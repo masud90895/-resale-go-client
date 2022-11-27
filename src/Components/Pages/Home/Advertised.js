@@ -14,7 +14,7 @@ const Advertised = ({ advertise }) => {
         {advertise?.map((advartice) => (
           <div
             key={advartice._id}
-            className={`lg:max-w-[744px] md:max-w-[744px] max-w-[375px] mx-auto bg-white relative lg:px-10 md:px-6 px-4 py-7 ${advartice?.status === true && "hidden"}`}
+            className={`lg:max-w-[744px] md:max-w-[744px] max-w-[375px] mx-auto bg-white relative lg:px-10 md:px-6 px-4 py-7 ${advartice?.paid === true && "hidden"}`}
           >
             <div className="lg:max-w-[696px] md:max-w-[696px] max-w-[343px] mx-auto bg-gray-200">
               <div className="lg:flex md:flex block justify-between items-center">
