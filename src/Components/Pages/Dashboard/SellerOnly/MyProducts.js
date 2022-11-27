@@ -14,7 +14,7 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["myProduct"],
     queryFn: () =>
-      fetch(`http://localhost:5000/myProduct?email=${user?.email}`, {
+      fetch(`https://assinment-12-server.vercel.app/myProduct?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -34,7 +34,7 @@ const MyProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/dashboard/myProducts/${id}`, {
+        fetch(`https://assinment-12-server.vercel.app/dashboard/myProducts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -59,7 +59,7 @@ const MyProducts = () => {
       confirmButtonText: "Yes, Advertise it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/advertise/${id}`, {
+        fetch(`https://assinment-12-server.vercel.app/advertise/${id}`, {
           method: "PUT",
         })
           .then((res) => res.json())
@@ -73,7 +73,7 @@ const MyProducts = () => {
       }
     });
 
-    /* fetch(`http://localhost:5000/advertise`, {
+    /* fetch(`https://assinment-12-server.vercel.app/advertise`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

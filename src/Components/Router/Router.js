@@ -47,7 +47,7 @@ const router = createBrowserRouter([
           </PriveteRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.id}`),
+          fetch(`https://assinment-12-server.vercel.app/category/${params.id}`),
       },
       {
         path: "blog",
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
             <Payment />
           
         ),
-        loader : ({params})=> fetch(`http://localhost:5000/dashboard/payment/${params.id}`)
+        loader : ({params})=> fetch(`https://assinment-12-server.vercel.app/dashboard/payment/${params.id}`)
       },
     ],
   },

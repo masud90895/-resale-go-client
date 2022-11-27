@@ -6,7 +6,7 @@ export const useSeller = (email) => {
   useEffect(() => {
     setLoading(true);
     if (email) {
-      fetch(`http://localhost:5000/allusers/seller/${email}`)
+      fetch(`https://assinment-12-server.vercel.app/allusers/seller/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

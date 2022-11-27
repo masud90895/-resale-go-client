@@ -10,7 +10,7 @@ const ReportedItems = () => {
   } = useQuery({
     queryKey: ["report"],
     queryFn: () =>
-      fetch("http://localhost:5000/report", {
+      fetch("https://assinment-12-server.vercel.app/report", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -28,7 +28,7 @@ const ReportedItems = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://assinment-12-server.vercel.app/report/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -9,7 +9,7 @@ const Home = () => {
 
   // console.log('object');
   useEffect(() => {
-    fetch("http://localhost:5000/advertise")
+    fetch("https://assinment-12-server.vercel.app/advertise")
       .then((res) => res.json())
       .then((data) => setAdvertise(data));
   }, []);

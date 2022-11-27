@@ -30,7 +30,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("Account Create Successfully");
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://assinment-12-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -57,7 +57,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("Account Create Successfully");
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://assinment-12-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -92,7 +92,7 @@ const Login = () => {
 
   const handleSaveUser = (name, email, role) => {
     const user = { name, email, role };
-    fetch("http://localhost:5000/users", {
+    fetch("https://assinment-12-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

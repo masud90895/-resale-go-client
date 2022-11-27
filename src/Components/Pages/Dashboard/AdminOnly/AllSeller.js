@@ -11,7 +11,7 @@ const AllSeller = () => {
   } = useQuery({
     queryKey: ["allSeller"],
     queryFn: () =>
-      fetch("http://localhost:5000/allSeller", {
+      fetch("https://assinment-12-server.vercel.app/allSeller", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -29,7 +29,7 @@ const AllSeller = () => {
       confirmButtonText: "Yes, delete him!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/allSeller/${id}`, {
+        fetch(`https://assinment-12-server.vercel.app/allSeller/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -43,7 +43,7 @@ const AllSeller = () => {
 
   const handleVerify = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/sellerVerify/${id}`, {
+    fetch(`https://assinment-12-server.vercel.app/sellerVerify/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

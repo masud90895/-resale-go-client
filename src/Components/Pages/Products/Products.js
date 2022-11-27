@@ -6,7 +6,7 @@ const Products = () => {
   const { data: products = [] } = useQuery({
     queryKey: ["products"],
     queryFn: () =>
-      fetch("http://localhost:5000/products").then((res) => res.json()),
+      fetch("https://assinment-12-server.vercel.app/products").then((res) => res.json()),
   });
   console.log(products);
   return (

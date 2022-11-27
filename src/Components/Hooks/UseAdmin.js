@@ -6,7 +6,7 @@ export const useAdmin = (email) => {
   useEffect(() => {
     setLoading(true);
     if (email) {
-      fetch(`http://localhost:5000/allusers/admin/${email}`)
+      fetch(`https://assinment-12-server.vercel.app/allusers/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

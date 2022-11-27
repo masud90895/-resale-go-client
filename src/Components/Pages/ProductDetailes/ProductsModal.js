@@ -35,7 +35,7 @@ const ProductsModal = ({ product, setModal }) => {
       productId: product._id,
     };
     console.log(allInfo);
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://assinment-12-server.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -8,14 +8,14 @@ const SecentHandProduct = () => {
  /*  const {isLoading, data: brands = [] } = useQuery({
     queryKey: ["brand"],
     queryFn: () =>
-      fetch("http://localhost:5000/brand").then((res) => res.json()),
+      fetch("https://assinment-12-server.vercel.app/brand").then((res) => res.json()),
   });
   if (isLoading) {
     return <Loader />;
   } */
 
   useEffect(()=>{
-    fetch("http://localhost:5000/brand")
+    fetch("https://assinment-12-server.vercel.app/brand")
     .then((res) => res.json())
     .then(data=>setbrand(data))
   },[])

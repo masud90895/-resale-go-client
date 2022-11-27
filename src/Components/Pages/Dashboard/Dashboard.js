@@ -8,7 +8,7 @@ const Dashboard = () => {
   const { data: users = {} } = useQuery({
     queryKey: ["user"],
     queryFn: () =>
-      fetch(`http://localhost:5000/user/?email=${user?.email}`).then((res) =>
+      fetch(`https://assinment-12-server.vercel.app/user/?email=${user?.email}`).then((res) =>
         res.json()
       ),
   });

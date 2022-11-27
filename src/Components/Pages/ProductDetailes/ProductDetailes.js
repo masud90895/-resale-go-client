@@ -23,7 +23,7 @@ const ProductDetailes = () => {
       confirmButtonText: "Yes, Report it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/report/${id}`, {
+        fetch(`https://assinment-12-server.vercel.app/report/${id}`, {
           method: "PUT",
         })
           .then((res) => res.json())
@@ -40,7 +40,7 @@ const ProductDetailes = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/brand/${brands?.brand}`).then((res) => {
+    axios.get(`https://assinment-12-server.vercel.app/brand/${brands?.brand}`).then((res) => {
       setProducts(res?.data);
     });
   }, [brands?.brand]);

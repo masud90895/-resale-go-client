@@ -12,7 +12,7 @@ const Product = ({ product, handleReport, setProduct, setModal }) => {
  
  
   useEffect(() => { 
-      fetch(`http://localhost:5000/user?email=${product?.email}`)
+      fetch(`https://assinment-12-server.vercel.app/user?email=${product?.email}`)
         .then((res) => res.json())
         .then((data) => setSellerRole(data?.verify))
         .catch(err=>console.log(err))

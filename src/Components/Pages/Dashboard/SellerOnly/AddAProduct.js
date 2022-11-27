@@ -15,7 +15,7 @@ const AddAProduct = () => {
   const date = new Date().getFullYear();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/user?email=${user?.email}`)
+    fetch(`https://assinment-12-server.vercel.app/user?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setIsVerify(data.verify));
   }, [user?.email]);
@@ -51,7 +51,7 @@ const AddAProduct = () => {
             email: data.email,
             status: false,
           };
-          fetch("http://localhost:5000/product", {
+          fetch("https://assinment-12-server.vercel.app/product", {
             method: "POST",
             headers: {
               "content-type": "application/json",
