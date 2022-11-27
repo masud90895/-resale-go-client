@@ -14,7 +14,11 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["myProduct"],
     queryFn: () =>
-      fetch(`http://localhost:5000/myProduct?email=${user?.email}`).then(
+      fetch(`http://localhost:5000/myProduct?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }).then(
         (res) => res.json()
       ),
   });

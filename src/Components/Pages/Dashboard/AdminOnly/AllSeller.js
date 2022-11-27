@@ -11,7 +11,11 @@ const AllSeller = () => {
   } = useQuery({
     queryKey: ["allSeller"],
     queryFn: () =>
-      fetch("http://localhost:5000/allSeller").then((res) => res.json()),
+      fetch("http://localhost:5000/allSeller", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((res) => res.json()),
   });
 
   const handleDelete = (id) => {
@@ -37,17 +41,17 @@ const AllSeller = () => {
     });
   };
 
-  const handleVerify=(id)=>{
+  const handleVerify = (id) => {
     console.log(id);
     fetch(`http://localhost:5000/sellerVerify/${id}`, {
-          method: "PUT",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            refetch();
-            toast.success("Seller has been verify successfully")
-          });
-  }
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+        toast.success("Seller has been verify successfully");
+      });
+  };
 
   return (
     <div>

@@ -27,7 +27,7 @@ const SecentHandProduct = () => {
           Our Most Valuable Brands
         </h1>
         <p className="text-xl mt-2">
-          Here is a list of ten most valuable brands in the world based on the
+          Here is a list of three most valuable brands in the world based on the
           brand value data from Visual Capitalist.
         </p>
       </div>

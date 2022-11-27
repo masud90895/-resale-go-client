@@ -27,7 +27,21 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         updateName(data.name)
-          .then(() => {})
+          .then(() => {
+            fetch("http://localhost:5000/jwt", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({ email: user.email }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data);
+                // set localStorage
+                localStorage.setItem("token", data.token);
+              });
+          })
           .catch((err) => {
             setError(err.message);
             console.log(err);
@@ -47,6 +61,19 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         toast.success("Account Create Successfully");
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // set localStorage
+            localStorage.setItem("token", data.token);
+          });
         handleSaveUser(user.displayName, user.email, "Buyer");
         nagivate("/");
       })
@@ -83,9 +110,7 @@ const Register = () => {
             </h1>
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">
-                 Selected Account Type
-                </span>
+                <span className="label-text">Selected Account Type</span>
               </label>
               <select {...register("role")} className="select select-bordered">
                 <option defaultValue={"user"}>Buyer</option>

@@ -10,7 +10,11 @@ const AddBuyers = () => {
       } = useQuery({
         queryKey: ["allUser"],
         queryFn: () =>
-          fetch("http://localhost:5000/allUser").then((res) => res.json()),
+          fetch("http://localhost:5000/allUser", {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }).then((res) => res.json()),
       });
     
       const handleDelete = (id) => {

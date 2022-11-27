@@ -30,6 +30,19 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("Account Create Successfully");
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // set localStorage
+            localStorage.setItem("token", data.token);
+          });
         setLoginUserEmail(user.email);
         navigate(from, { replace: true });
       })
@@ -44,6 +57,19 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("Account Create Successfully");
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // set localStorage
+            localStorage.setItem("token", data.token);
+          });
         handleSaveUser(user.displayName, user.email, "Buyer");
         navigate(from, { replace: true });
       })
