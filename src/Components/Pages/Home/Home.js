@@ -7,6 +7,7 @@ import SecentHandProduct from "./SecentHandProduct";
 const Home = () => {
   const [advertise, setAdvertise] = useState([]);
 
+  // console.log('object');
   useEffect(() => {
     fetch("http://localhost:5000/advertise")
       .then((res) => res.json())

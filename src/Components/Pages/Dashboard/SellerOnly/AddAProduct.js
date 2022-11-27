@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,10 +8,17 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const AddAProduct = () => {
   const { user } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [isVerify, setIsVerify] = useState(null);
   const imgHostKey = process.env.REACT_APP_imgKey;
   const navigate = useNavigate();
   const time = new Date().toLocaleTimeString();
-  const date =new Date().getFullYear()
+  const date = new Date().getFullYear();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/user?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setIsVerify(data.verify));
+  }, [user?.email]);
 
   const {
     formState: { errors },
@@ -36,13 +43,13 @@ const AddAProduct = () => {
             model: data.model,
             location: data.location,
             time,
-            verify: false,
+            verify: isVerify === true ? true : false,
             originalprice: 2999,
             resaleprice: data.price,
             usesyear: date - parseFloat(data.usesyear),
             seller: data.name,
             email: data.email,
-            status : false
+            status: false,
           };
           fetch("http://localhost:5000/product", {
             method: "POST",
@@ -60,6 +67,7 @@ const AddAProduct = () => {
         }
       });
   };
+
   return (
     <div>
       <div className="text-left text-3xl font-bold my-6 md:pl-8">

@@ -50,6 +50,10 @@ const ProductDetailes = () => {
     });
   }, [brands?.brand]);
 
+  console.log(products);
+
+  
+
   return (
     <div className=" 2xl:container 2xl:mx-auto">
       <div className=" bg-gray-50 text-center lg:py-10 md:py-8 py-6">

@@ -43,36 +43,8 @@ const MyProducts = () => {
     });
   };
 
-  const handleAdvertise = (advertise) => {
-    const {
-      brand,
-      email,
-      img,
-      location,
-      model,
-      originalprice,
-      resaleprice,
-      seller,
-      status,
-      time,
-      usesyear,
-      verify,
-    } = advertise;
-    const adverticeInfo = {
-      brand,
-      email,
-      img,
-      location,
-      model,
-      originalprice,
-      resaleprice,
-      seller,
-      status,
-      time,
-      usesyear,
-      verify,
-    };
-
+  const handleAdvertise = (id) => {
+    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You want to advertise it!",
@@ -83,12 +55,8 @@ const MyProducts = () => {
       confirmButtonText: "Yes, Advertise it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/advertise`, {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(adverticeInfo),
+        fetch(`http://localhost:5000/advertise/${id}`, {
+          method: "PUT",
         })
           .then((res) => res.json())
           .then((data) => {
@@ -152,7 +120,7 @@ const MyProducts = () => {
                   {!product.status && (
                     <td>
                       <button
-                        onClick={() => handleAdvertise(product)}
+                        onClick={() => handleAdvertise(product?._id)}
                         className="btn btn-sm bg-black"
                       >
                         advertise

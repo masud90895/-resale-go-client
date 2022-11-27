@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Resale-Go
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##Admin Password
+email: admin@admin.com
+password: Masud1@
 
-## Available Scripts
+## Live Link
 
-In the project directory, you can run:
+Hosted in firebase -> [Resale Go](https://aassinment12.web.app/)
 
-### `npm start`
+## My Projects
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This site build based on selling used (second-hand phone) with the ability to advertise a product. <br/>
+- To Build This Project I used React, React router, Tailwind, sweet alert,firebase,MongoDB,React query, axios etc. <br/>
+- This brand sells sustainably sourced second hand Phone through their website .<br/>
+- This Site uses three types user, like : admin,seller & user/buyer<br/>
+- This project's fully authenticated using firebase <br/>
+- This project i using 2 type authentication, exe: 1.google & email-password <br/>
+- This project have dashboard route.dashboard are fully dynamic<br/>
+- This project also have Blog page.There we showings most important Question's.Etc<br/>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Projects technologies
 
-### `npm test`
+- React,React Router dom<br/>
+- MongoDB <br/>
+- Tailwind ,Mamba ui<br/>
+- react query<br/>
+- axios <br/>
+- Headless ui<br/>
+- firebase <br/>
+- react-hot-toast <br/>
+- react-icons <br/>
+- react-loader-spinner <br/>
+- react-text-animations <br/>
+- sweetalert2 etc.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 Social Links
 
-### `npm run build`
+[![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/masud90895)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mdmahafujurrahamanmasud/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/masud90895)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Thanks for reading this

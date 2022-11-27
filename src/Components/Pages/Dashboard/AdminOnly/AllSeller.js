@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const AllSeller = () => {
   const {
@@ -36,6 +37,18 @@ const AllSeller = () => {
     });
   };
 
+  const handleVerify=(id)=>{
+    console.log(id);
+    fetch(`http://localhost:5000/sellerVerify/${id}`, {
+          method: "PUT",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            refetch();
+            toast.success("Seller has been verify successfully")
+          });
+  }
+
   return (
     <div>
       <div className="my-8">
@@ -53,7 +66,8 @@ const AllSeller = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th></th>
+                <th>Action</th>
+                <th>Verify</th>
               </tr>
             </thead>
             <tbody>
@@ -70,6 +84,18 @@ const AllSeller = () => {
                     >
                       Remove Seller
                     </button>
+                  </td>
+                  <td>
+                    {seller.verify ? (
+                      <h1 className="text-green-600">Verified</h1>
+                    ) : (
+                      <button
+                        onClick={() => handleVerify(seller._id)}
+                        className="btn btn-sm bg-black"
+                      >
+                        Verify
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}
