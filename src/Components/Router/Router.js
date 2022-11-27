@@ -19,6 +19,7 @@ import Products from "../Pages/Products/Products";
 import AdminRoute from "./AdminRoute";
 import PriveteRoute from "./PriveteRoute";
 import SellerRoute from "./SellerRoute";
+import UserRoute from "./UserRoute";
 
 const router = createBrowserRouter([
   {
@@ -82,9 +83,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myorders",
         element: (
-          <PriveteRoute>
+          <UserRoute>
             <MyOrders />
-          </PriveteRoute>
+          </UserRoute>
         ),
       },
       {
