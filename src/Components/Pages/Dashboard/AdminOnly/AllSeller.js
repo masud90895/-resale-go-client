@@ -84,7 +84,7 @@ const AllSeller = () => {
                   <td>
                     <button
                       onClick={() => handleDelete(seller._id)}
-                      className="btn btn-sm bg-black"
+                      className="btn btn-sm bg-red-600 border-none"
                     >
                       Remove Seller
                     </button>
@@ -95,7 +95,7 @@ const AllSeller = () => {
                     ) : (
                       <button
                         onClick={() => handleVerify(seller._id)}
-                        className="btn btn-sm bg-black"
+                        className="btn btn-sm bg-green-500 border-none"
                       >
                         Verify
                       </button>

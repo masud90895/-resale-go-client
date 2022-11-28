@@ -14,13 +14,14 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: ["myProduct"],
     queryFn: () =>
-      fetch(`https://assinment-12-server.vercel.app/myProduct?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    }).then(
-        (res) => res.json()
-      ),
+      fetch(
+        `https://assinment-12-server.vercel.app/myProduct?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      ).then((res) => res.json()),
   });
 
   const handleDelete = (id) => {
@@ -34,9 +35,12 @@ const MyProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://assinment-12-server.vercel.app/dashboard/myProducts/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assinment-12-server.vercel.app/dashboard/myProducts/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             Swal.fire("Deleted!", "product delete successfully", "success");
@@ -89,6 +93,9 @@ const MyProducts = () => {
   if (isLoading) {
     return <Loader />;
   }
+
+  console.log(myProducts);
+
   return (
     <>
       <div className="md:text-4xl text-2xl font-serif font-bold my-8 ml-3">
@@ -112,22 +119,32 @@ const MyProducts = () => {
                   <th>{i + 1}</th>
                   <td>{product.model}</td>
                   <td>{product.resaleprice}</td>
-                  <td>{product.status === true ? "Sold" : "Available"}</td>
+                  <td>{product.paid === true ? "Sold" : "Available"}</td>
                   <td>
                     <button
                       onClick={() => handleDelete(product._id)}
-                      className="btn btn-sm bg-black"
+                      className="btn btn-sm bg-red-600 border-none"
                     >
                       Delete
                     </button>
                   </td>
-                  {!product.status && (
+                  {!product.paid && (
                     <td>
                       <button
                         onClick={() => handleAdvertise(product?._id)}
-                        className="btn btn-sm bg-black"
+                        className="btn btn-sm bg-green-500 border-none"
                       >
                         advertise
+                      </button>
+                    </td>
+                  )}
+                  {product.paid && (
+                    <td>
+                      <button
+                        disabled
+                        className="btn btn-sm bg-green-500 border-none"
+                      >
+                        Already Paid
                       </button>
                     </td>
                   )}

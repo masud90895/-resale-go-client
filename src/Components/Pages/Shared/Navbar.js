@@ -36,7 +36,7 @@ const Navbar = () => {
             </svg>
           </label>
           <div className="flex-1 md:flex md:items-center md:gap-12">
-            <Link className="block" to="..//">
+            <Link className="block flex" to="..//">
               <h1 className="text-3xl font-bold font-serif text-black">
                 {" "}
                 Resale-Go

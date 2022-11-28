@@ -70,7 +70,7 @@ const ReportedItems = () => {
                   <td>
                     <button
                       onClick={() => handleDelete(rp._id)}
-                      className="btn btn-sm bg-black"
+                      className="btn btn-sm bg-red-600 border-none"
                     >
                       Remove product
                     </button>

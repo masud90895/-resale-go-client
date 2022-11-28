@@ -70,7 +70,7 @@ const AddBuyers = () => {
                       <td>
                         <button
                           onClick={() => handleDelete(buyer._id)}
-                          className="btn btn-sm bg-black"
+                          className="btn btn-sm bg-red-600 border-none"
                         >
                           Remove Buyer
                         </button>
