@@ -76,20 +76,7 @@ const Navbar = () => {
                     Products
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    className={({ isActive }) =>
-                      `text-gray-700 transition hover:border-b-2  ${
-                        isActive
-                          ? "bg-gradient-to-r from-black to-black text-gray-100 py-3 px-4 rounded-lg"
-                          : "hover:border-black"
-                      }`
-                    }
-                    to="../about"
-                  >
-                    About
-                  </NavLink>
-                </li>
+            
 
                 <li>
                   <NavLink
@@ -172,7 +159,6 @@ const Navbar = () => {
           }`}
         >
           <Link to="../home">home</Link>
-          <Link to="../about">About</Link>
           <Link to="../products">Products</Link>
           <Link to="../dashboard">Dashboard</Link>
           <Link to="../Blog">Blog</Link>
